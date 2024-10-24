@@ -1,0 +1,39 @@
+.titlebar {
+  /* -webkit-app-region: drag; */
+  @apply fixed inset-x-0 top-0 h-12 shrink-0 z-[9999] ;
+}
+
+.title-toolbar {
+  --title-bar-height: 30px;
+  --side-width:256px;
+  height: var(--title-bar-height);
+  left: var(--side-width);
+  /* -webkit-app-region: drag; */
+  @apply absolute right-0 flex items-center justify-end overflow-hidden;
+}
+
+.titlebar-button,
+.titlebar-button-close,
+.titlebar-button-pin {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  user-select: none;
+  -webkit-app-region: no-drag;
+  @apply pointer-events-auto hover:bg-red-300;
+}
+
+.titlebar-button-pin {
+  background: #ccc;
+}
+
+.titlebar-button-pin:hover,
+.titlebar-button:hover {
+  background: #e2e2e2;
+}
+
+.titlebar-button-close:hover {
+  background: #ff5f56;
+}
