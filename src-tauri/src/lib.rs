@@ -1,5 +1,4 @@
-use tauri::Manager;
-
+pub mod  cmd;
 pub mod action;
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {

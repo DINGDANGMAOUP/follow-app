@@ -1,12 +1,12 @@
 'use client'
-import React, {  useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import styles from './index.module.css'
 import { Button } from '../ui/button'
-import {  Window } from '@tauri-apps/api/window'
+import { Window } from '@tauri-apps/api/window'
+import cs from 'classnames'
 import Icon from '../Icon'
-
 const TitleBar = () => {
-  const [isMax,setMax] = useState(false)
+  const [isMaximize, setIsMaximize] = useState(false)
   const [isClient, setIsClient] = useState(false)
   useEffect(() => {
     setIsClient(true)
@@ -14,17 +14,14 @@ const TitleBar = () => {
   const appWindow = useMemo(() => {
     return isClient ? new Window('main') : undefined
   }, [isClient])
-  appWindow?.once('tauri://move',event=>{
-    console.log('tauri://move',event)
-  })
   const minimize = async () => appWindow?.minimize()
-  const maximize = async () => appWindow?.toggleMaximize()
+  const maximize = async () => setIsMaximize(!isMaximize)
   const close = async () => appWindow?.close()
+
   useEffect(()=>{
-    appWindow?.once("tauri://drag-drop",event=>{
-      console.log('drag-drop',event)
-    })
-  },[appWindow])
+    if(isMaximize) appWindow?.maximize()
+    else appWindow?.unmaximize()
+  },[appWindow, isMaximize])
 
   return (
     <div data-tauri-drag-region className={styles.titlebar}>
@@ -34,10 +31,10 @@ const TitleBar = () => {
         </Button>
         <Button className={styles['titlebar-button']} variant='ghost' size='icon' onClick={maximize}>
           {
-            isMax?<Icon name='maximize' />:<Icon name='maximize-2' />
+            isMaximize ? <Icon name='minimize' /> : <Icon name='maximize' />
           }
         </Button>
-        <Button className={styles['titlebar-button']} variant='ghost' size='icon' onClick={close}>
+        <Button className={cs(styles['titlebar-button'], 'hover:bg-red-300')} variant='ghost' size='icon' onClick={close}>
           <Icon name='x' />
         </Button>
       </div>

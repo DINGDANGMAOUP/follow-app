@@ -13,3 +13,10 @@ pub fn get_os()->String{
   let platform = tauri_plugin_os::platform();
   return platform.to_string();
 }
+#[tauri::command]
+pub async fn get_cpu() {
+  #[cfg(target_os = "windows")]
+  {
+    println!("CPU: {:?}", 1);
+  }
+}

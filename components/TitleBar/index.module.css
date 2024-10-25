@@ -12,9 +12,7 @@
   @apply absolute right-0 flex items-center justify-end overflow-hidden;
 }
 
-.titlebar-button,
-.titlebar-button-close,
-.titlebar-button-pin {
+.titlebar-button {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -22,18 +20,5 @@
   height: 30px;
   user-select: none;
   -webkit-app-region: no-drag;
-  @apply pointer-events-auto hover:bg-red-300;
-}
-
-.titlebar-button-pin {
-  background: #ccc;
-}
-
-.titlebar-button-pin:hover,
-.titlebar-button:hover {
-  background: #e2e2e2;
-}
-
-.titlebar-button-close:hover {
-  background: #ff5f56;
+  @apply pointer-events-auto;
 }

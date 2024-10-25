@@ -3,7 +3,6 @@ import localFont from "next/font/local";
 import "./globals.css";
 import TitleBar from "@/components/TitleBar";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { invoke } from "@tauri-apps/api/core";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -25,7 +24,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-    
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -37,8 +36,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-         <TitleBar />
-          {children}
+            <TitleBar />
+            {children}
         </ThemeProvider>
       </body>
     </html>
