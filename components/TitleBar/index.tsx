@@ -17,11 +17,10 @@ const TitleBar = () => {
   const minimize = async () => appWindow?.minimize()
   const maximize = async () => setIsMaximize(!isMaximize)
   const close = async () => appWindow?.close()
-
-  useEffect(()=>{
-    if(isMaximize) appWindow?.maximize()
+  useEffect(() => {
+    if (isMaximize) appWindow?.maximize()
     else appWindow?.unmaximize()
-  },[appWindow, isMaximize])
+  }, [appWindow, isMaximize])
 
   return (
     <div data-tauri-drag-region className={styles.titlebar}>

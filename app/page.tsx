@@ -1,8 +1,6 @@
 'use client'
 import { ModeToggle } from "@/components/ModeToggle";
-import { Button } from "@/components/ui/button";
 import { useListen } from "@/hooks/useListen";
-import { invoke } from "@tauri-apps/api/core";
 import { useAsyncEffect } from "ahooks";
 import Image from "next/image";
 export default function Home() {

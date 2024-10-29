@@ -13,11 +13,13 @@
     "windows": [
       {
         "title": "follow-app",
-        "width": 800,
-        "height": 600,
+        "width": 1200,
+        "height": 900,
         "resizable": true,
         "fullscreen": false,
-        "decorations": false
+        "decorations": false,
+        "minWidth": 1024,
+        "minHeight": 500
       }
     ],
     "security": {
