@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import TitleBar from "@/components/TitleBar";
 import { ThemeProvider } from "@/components/ThemeProvider";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -36,8 +35,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-            <TitleBar />
-            {children}
+          {children}
         </ThemeProvider>
       </body>
     </html>
