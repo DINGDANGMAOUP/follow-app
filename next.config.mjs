@@ -1,8 +1,10 @@
 /** @type {import('next').NextConfig} */
-
+// import { FileSystemIconLoader } from 'unplugin-icons/loaders'
+import { createRequire } from 'module';
 const isProd = process.env.NODE_ENV === 'production';
-
+const require = createRequire(import.meta.url);
 const internalHost = process.env.TAURI_DEV_HOST || 'localhost';
+const { FileSystemIconLoader } = require('unplugin-icons/loaders');
 const nextConfig = {
   transpilePackages: ['lucide-react'],
     // 确保 Next.js 使用 SSG 而不是 SSR
@@ -15,6 +17,29 @@ const nextConfig = {
   },
   // 配置 assetPrefix，否则服务器无法正确解析您的资产。
   assetPrefix: isProd ? null : `http://${internalHost}:3000`,
+  webpack:(config)=>{
+    config.plugins.push(require('unplugin-auto-import/webpack').default({
+      imports: ['react'],
+      dirs: ['./components/**'],
+      dts: './typing/auto-imports.d.ts',
+      resolvers: [
+        require('unplugin-icons/resolver').default({
+          prefix: 'Icon',
+          extension: 'jsx',
+          customCollections: ['local'],
+        })
+      ],
+    }),require('unplugin-icons/webpack').default({
+      compiler: 'jsx',
+      customCollections: {
+        local: FileSystemIconLoader(
+          'src/assets/icons',
+          svg => svg.replace(/^<svg /, '<svg fill="currentColor" '),
+        ),
+      },
+    }))
+    return config
+  },
 };
 
 export default nextConfig;
