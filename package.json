@@ -43,6 +43,7 @@
   "devDependencies": {
     "@tauri-apps/cli": "^2.0.4",
     "@types/node": "^20",
+    "@types/postcss-js": "^4.0.4",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@typescript-eslint/eslint-plugin": "^8.11.0",

@@ -1,14 +1,15 @@
+//ts check
 import { parse } from 'postcss'
 import { objectify } from 'postcss-js'
 import { readFileSync } from 'fs'
-
+import { PluginCreator, PluginAPI } from 'tailwindcss/types/config'
 /**
  * CSS as plugin
  * @param {string} filename CSS file
  * @returns {import('tailwindcss/types/config').PluginCreator}
  */
-const createPlugin = filename => {
-  return ({ addBase, addComponents, addUtilities }) => {
+const createPlugin = (filename: string): PluginCreator => {
+  return ({ addBase, addComponents, addUtilities }: PluginAPI) => {
     const css = readFileSync(filename, 'utf8')
     const root = parse(css)
     const jss = objectify(root)

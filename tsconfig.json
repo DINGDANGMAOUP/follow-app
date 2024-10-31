@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts","typing/*.d.ts", "tailwind-css-plugin.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts","typing/*.d.ts", "tailwind-css-plugin.ts"],
   "exclude": ["node_modules"]
 }
