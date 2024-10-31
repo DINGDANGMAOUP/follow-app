@@ -17,6 +17,8 @@ import { Sidebar } from "./sidebar"
 import { listenNowAlbums, madeForYouAlbums } from "./data/albums"
 import { playlists } from "./data/playlists"
 import Icon from "../Icon"
+import musicDark from'./music-dark.webp'
+import musicLight from'./music-light.webp'
 
 
 export default function MusicPage() {
@@ -24,14 +26,14 @@ export default function MusicPage() {
     <>
       <div className="md:hidden">
         <Image
-          src="/examples/music-light.png"
+          src={musicLight}
           width={1280}
           height={1114}
           alt="Music"
           className="block dark:hidden"
         />
         <Image
-          src="/examples/music-dark.png"
+          src={musicDark}
           width={1280}
           height={1114}
           alt="Music"
