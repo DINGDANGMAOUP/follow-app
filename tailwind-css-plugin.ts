@@ -1,4 +1,4 @@
-//ts check
+//ts check https://github.com/tailwindlabs/tailwindcss-intellisense/issues/227
 import { parse } from 'postcss'
 import { objectify } from 'postcss-js'
 import { readFileSync } from 'fs'
