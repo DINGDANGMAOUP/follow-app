@@ -1,5 +1,3 @@
-// @ts-check
-
 import { parse } from 'postcss'
 import { objectify } from 'postcss-js'
 import { readFileSync } from 'fs'
@@ -9,7 +7,7 @@ import { readFileSync } from 'fs'
  * @param {string} filename CSS file
  * @returns {import('tailwindcss/types/config').PluginCreator}
  */
-export default filename => {
+const createPlugin = filename => {
   return ({ addBase, addComponents, addUtilities }) => {
     const css = readFileSync(filename, 'utf8')
     const root = parse(css)
@@ -26,3 +24,5 @@ export default filename => {
     }
   }
 }
+
+export default createPlugin
