@@ -36,5 +36,5 @@ yarn-error.log*
 next-env.d.ts
 bun.lockb
 
-auto-imports.d.ts
+typing/auto-imports.d.ts
 .eslintrc-auto-import.json
