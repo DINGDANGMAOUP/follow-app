@@ -50,6 +50,25 @@ const config: Config = {
   				'3': 'hsl(var(--chart-3))',
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
+  			},
+  			sidebar: {
+  				// DEFAULT: 'hsl(var(--sidebar-background))',
+  				DEFAULT: 'hsl(var(--background))',
+  				// foreground: 'hsl(var(--sidebar-foreground))',
+  				foreground: 'hsl(var(--foreground))',
+  				// primary: 'hsl(var(--sidebar-primary))',
+  				primary: 'hsl(var(--primary))',
+  				// 'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
+  				'primary-foreground': 'hsl(var(--primary-foreground))',
+  				// accent: 'hsl(var(--sidebar-accent))',
+  				accent: 'hsl(var(--accent))',
+  				// 'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
+  				'accent-foreground': 'hsl(var(--accent-foreground))',
+  				// border: 'hsl(var(--sidebar-border))',
+  				// border: 'hsl(var(--border))',
+  				border: 'hsl(var(--border))',
+  				// ring: 'hsl(var(--sidebar-ring))'
+  				ring: 'hsl(var(--ring))'
   			}
   		},
   		borderRadius: {

@@ -13,7 +13,7 @@ import {
 import { AlbumArtwork } from "./album-artwork"
 // import { Menu } from "./menu"
 import { PodcastEmptyPlaceholder } from "./podcast-empty-placeholder"
-import { Sidebar } from "./sidebar"
+import { MusicSidebar } from "./music-sidebar"
 import { listenNowAlbums, madeForYouAlbums } from "./data/albums"
 import { playlists } from "./data/playlists"
 import Icon from "../Icon"
@@ -41,10 +41,10 @@ export default function MusicPage() {
         />
       </div>
       <div className="hidden md:block">
-        <div className="border-t">
+        {/* <div className="border-t"> */}
           <div className="bg-background">
             <div className="grid lg:grid-cols-5">
-              <Sidebar playlists={playlists} className="hidden lg:block" />
+              <MusicSidebar playlists={playlists} className="hidden lg:block" />
               <div className="col-span-3 lg:col-span-4 lg:border-l">
                 <div className="h-full px-4 py-6 lg:px-8">
                   <Tabs defaultValue="music" className="h-full space-y-6">
@@ -147,7 +147,7 @@ export default function MusicPage() {
             </div>
           </div>
         </div>
-      </div>
+      {/* </div> */}
     </>
   )
 }

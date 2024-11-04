@@ -1,5 +1,4 @@
 /** @type {import('next').NextConfig} */
-// import { FileSystemIconLoader } from 'unplugin-icons/loaders'
 import { createRequire } from 'module';
 const isProd = process.env.NODE_ENV === 'production';
 const require = createRequire(import.meta.url);

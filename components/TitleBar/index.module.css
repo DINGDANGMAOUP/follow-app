@@ -6,7 +6,7 @@
   --title-bar-height: 30px;
   height: var(--title-bar-height);
   left: 0;
-  @apply absolute right-0 flex items-center justify-end overflow-hidden drag-region;
+  @apply absolute border-b right-0 flex items-center justify-end overflow-hidden drag-region;
 }
 
 .titlebar-button {

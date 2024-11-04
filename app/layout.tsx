@@ -29,8 +29,17 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+
           <TitleBar />
-          {children}
+          <div className="pt-8">
+            <SidebarProvider>
+              <SidePanel />
+              <main>
+                {/* <SidebarTrigger/> */}
+                {children}
+              </main>
+            </SidebarProvider>
+          </div>
         </ThemeProvider>
       </body>
     </html>
