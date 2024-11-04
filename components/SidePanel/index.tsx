@@ -1,3 +1,4 @@
+'use client'
 import {
   Sidebar,
   SidebarContent,
@@ -8,7 +9,9 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
-
+import dynamicIconImports from "lucide-react/dynamicIconImports"
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 const menuData = [
   {
     title: 'Discover',
@@ -16,17 +19,20 @@ const menuData = [
       {
         title: 'Listen Now',
         url: '#',
-        icon: 'Home'
+        icon: 'youtube',
+        path: '/discover/listen-now'
       },
       {
         title: 'Browse',
         url: '#',
-        icon: 'Inbox'
+        icon: 'inbox',
+        path: '/discover/browse'
       },
       {
-        title: 'Browse',
+        title: 'Radio',
         url: '#',
-        icon: 'Calendar'
+        icon: 'radio',
+        path: '/discover/radio'
       }
     ]
   },
@@ -36,12 +42,14 @@ const menuData = [
       {
         title: 'Playlists',
         url: '#',
-        icon: 'Search'
+        icon: 'list-music',
+        path: '/library/playlists'
       },
       {
-        title: 'Artists',
+        title: 'Songs',
         url: '#',
-        icon: 'Settings'
+        icon: 'music-2',
+        path: '/library/songs'
       }
     ]
   },
@@ -50,6 +58,10 @@ const menuData = [
   }
 ]
 const SidePanel = () => {
+  const pathname = usePathname()
+  useEffect(() => {
+    console.log('pathname', pathname);
+  }, [pathname])
   return (
     <Sidebar className="pt-8">
       <SidebarHeader>
@@ -69,11 +81,11 @@ const SidePanel = () => {
                   {
                     group.items?.map((item) => (
                       <SidebarMenuItem key={item.title}>
-                        <SidebarMenuButton asChild>
-                          <a href={item.url}>
-                            {item.icon &&  <Icon name={item.icon} />}
+                        <SidebarMenuButton asChild isActive={item.path === pathname }>
+                          <Link href={item.url}>
+                            {item.icon && <Icon name={item.icon as keyof typeof dynamicIconImports} />}
                             <span>{item.title}</span>
-                          </a>
+                          </Link>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
                     ))
