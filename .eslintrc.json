@@ -1,5 +1,5 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript","plugin:@typescript-eslint/recommended","prettier"],
+  "extends": ["./.eslintrc-auto-import.json","next/core-web-vitals", "next/typescript","plugin:@typescript-eslint/recommended","prettier"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -10,6 +10,8 @@
   },
   "plugins": ["@typescript-eslint"],
   "rules": {
-    "@typescript-eslint/no-require-imports": "off"
+    "@typescript-eslint/no-require-imports": "off",
+    "react/jsx-no-undef": "off",
+    "@typescript-eslint/no-empty-object-type": "off"
   }
 }

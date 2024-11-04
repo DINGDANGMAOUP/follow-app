@@ -1,15 +1,12 @@
 .titlebar {
-  /* -webkit-app-region: drag; */
-  @apply fixed inset-x-0 top-0 h-12 shrink-0 z-[9999] ;
+  @apply fixed inset-x-0 top-0 h-12 shrink-0 z-[9999] drag-region;
 }
 
 .title-toolbar {
   --title-bar-height: 30px;
-  --side-width:256px;
   height: var(--title-bar-height);
-  left: var(--side-width);
-  /* -webkit-app-region: drag; */
-  @apply absolute right-0 flex items-center justify-end overflow-hidden;
+  left: 0;
+  @apply absolute right-0 flex items-center justify-end overflow-hidden drag-region;
 }
 
 .titlebar-button {
@@ -19,6 +16,5 @@
   width: 30px;
   height: 30px;
   user-select: none;
-  -webkit-app-region: no-drag;
-  @apply pointer-events-auto;
+  @apply pointer-events-auto no-drag-region;
 }

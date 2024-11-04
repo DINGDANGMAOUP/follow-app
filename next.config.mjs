@@ -19,7 +19,7 @@ const nextConfig = {
   assetPrefix: isProd ? null : `http://${internalHost}:3000`,
   webpack:(config)=>{
     config.plugins.push(require('unplugin-auto-import/webpack').default({
-      imports: ['react'],
+      imports: ['react','ahooks','jotai','jotai/utils'],
       dirs: ['./components/**'],
       dts: './typing/auto-imports.d.ts',
       resolvers: [
@@ -29,6 +29,9 @@ const nextConfig = {
           customCollections: ['local'],
         })
       ],
+      eslintrc: {
+        enabled: true,
+      },
     }),require('unplugin-icons/webpack').default({
       compiler: 'jsx',
       customCollections: {

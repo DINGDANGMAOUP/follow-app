@@ -1,6 +1,6 @@
 use std::thread;
+use tauri::{ Emitter, Window};
 
-use tauri::{Emitter, Window};
 #[tauri::command]
 pub fn test(window: Window) {
     thread::spawn(move || loop {

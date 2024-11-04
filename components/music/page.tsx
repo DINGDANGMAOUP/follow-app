@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/tabs"
 
 import { AlbumArtwork } from "./album-artwork"
-import { Menu } from "./menu"
+// import { Menu } from "./menu"
 import { PodcastEmptyPlaceholder } from "./podcast-empty-placeholder"
 import { Sidebar } from "./sidebar"
 import { listenNowAlbums, madeForYouAlbums } from "./data/albums"
@@ -41,7 +41,6 @@ export default function MusicPage() {
         />
       </div>
       <div className="hidden md:block">
-        <Menu />
         <div className="border-t">
           <div className="bg-background">
             <div className="grid lg:grid-cols-5">

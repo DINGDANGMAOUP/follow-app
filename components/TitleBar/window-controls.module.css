@@ -1,0 +1,7 @@
+.titlebar-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  @apply pointer-events-auto no-drag-region transition-all;
+}
