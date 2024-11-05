@@ -103,7 +103,7 @@ const SidePanel = () => {
     </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-        <p className="text-sm text-gray-500">© 2021 App Name</p>
+       <FooterPanel />
       </SidebarFooter>
     </Sidebar>
   )
