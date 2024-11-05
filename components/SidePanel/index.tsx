@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/sidebar"
 import dynamicIconImports from "lucide-react/dynamicIconImports"
 import Link from 'next/link'
+
 import { usePathname } from 'next/navigation'
 const menuData = [
   {
@@ -65,7 +66,7 @@ const SidePanel = () => {
   return (
     <Sidebar className="pt-8">
       <SidebarHeader>
-        <h1 className="text-2xl font-semibold tracking-tight">App Name</h1>
+        <LogoPanel/>
       </SidebarHeader>
       <SidebarContent>
         {
@@ -81,8 +82,8 @@ const SidePanel = () => {
                   {
                     group.items?.map((item) => (
                       <SidebarMenuItem key={item.title}>
-                        <SidebarMenuButton asChild isActive={item.path === pathname }>
-                          <Link href={item.url}>
+                        <SidebarMenuButton asChild isActive={item.path === pathname}>
+                          <Link className="mb-2 px-4 text-lg" href={item.path}>
                             {item.icon && <Icon name={item.icon as keyof typeof dynamicIconImports} />}
                             <span>{item.title}</span>
                           </Link>
@@ -95,7 +96,11 @@ const SidePanel = () => {
             </SidebarGroup>
           ))
         }
-
+    <SidebarGroup>
+      <SidebarGroupContent>
+        <ModeToggle />
+      </SidebarGroupContent>
+    </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
         <p className="text-sm text-gray-500">© 2021 App Name</p>

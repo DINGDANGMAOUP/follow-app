@@ -34,7 +34,7 @@ export default function RootLayout({
           <div className="pt-8">
             <SidebarProvider>
               <SidePanel />
-              <main>
+              <main className="w-full">
                 {/* <SidebarTrigger/> */}
                 {children}
               </main>

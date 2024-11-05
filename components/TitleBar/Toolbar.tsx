@@ -14,13 +14,14 @@ import {
   MenubarSubTrigger,
   MenubarTrigger,
 } from "@/components/ui/menubar"
-import cs from 'classnames'
-import styles from './menu.module.css'
-const Menu = () => {
+
+import styles from './toolbar.module.css'
+import { cn } from "@/lib/utils"
+const Toolbar = () => {
   return (
-      <Menubar  className="border-none">
+      <Menubar className="border-none">
         <MenubarMenu>
-          <MenubarTrigger className={cs("font-bold",styles['menu-button'])}>Music</MenubarTrigger>
+          <MenubarTrigger className={cn("font-bold",styles['toolbar-button'])}>Music</MenubarTrigger>
           <MenubarContent>
             <MenubarItem>About Music</MenubarItem>
             <MenubarSeparator />
@@ -41,7 +42,7 @@ const Menu = () => {
           </MenubarContent>
         </MenubarMenu>
         <MenubarMenu>
-          <MenubarTrigger className={cs("relative",styles['menu-button'])}>File</MenubarTrigger>
+          <MenubarTrigger className={cn("relative",styles['toolbar-button'])}>File</MenubarTrigger>
           <MenubarContent>
             <MenubarSub>
               <MenubarSubTrigger>New</MenubarSubTrigger>
@@ -100,7 +101,7 @@ const Menu = () => {
           </MenubarContent>
         </MenubarMenu>
         <MenubarMenu>
-          <MenubarTrigger className={styles['menu-button']}>Edit</MenubarTrigger>
+          <MenubarTrigger className={styles['toolbar-button']}>Edit</MenubarTrigger>
           <MenubarContent>
             <MenubarItem disabled>
               Undo <MenubarShortcut>⌘Z</MenubarShortcut>
@@ -165,7 +166,7 @@ const Menu = () => {
           </MenubarContent>
         </MenubarMenu>
         <MenubarMenu>
-          <MenubarTrigger className={styles['menu-button']}>View</MenubarTrigger>
+          <MenubarTrigger className={styles['toolbar-button']}>View</MenubarTrigger>
           <MenubarContent>
             <MenubarCheckboxItem>Show Playing Next</MenubarCheckboxItem>
             <MenubarCheckboxItem checked>Show Lyrics</MenubarCheckboxItem>
@@ -181,7 +182,7 @@ const Menu = () => {
           </MenubarContent>
         </MenubarMenu>
         <MenubarMenu>
-          <MenubarTrigger className={cs("hidden md:block",styles['menu-button'])}>Account</MenubarTrigger>
+          <MenubarTrigger className={cn("hidden md:block",styles['toolbar-button'])}>Account</MenubarTrigger>
           <MenubarContent forceMount>
             <MenubarLabel inset>Switch Account</MenubarLabel>
             <MenubarSeparator />
@@ -200,4 +201,4 @@ const Menu = () => {
   )
 }
 
-export default Menu
+export default Toolbar

@@ -4,12 +4,12 @@
 
 .title-toolbar {
   --title-bar-height: 30px;
-  height: var(--title-bar-height);
+  /* height: var(--title-bar-height); */
   left: 0;
-  @apply absolute border-b right-0 flex items-center justify-end overflow-hidden drag-region;
+  @apply absolute h-8 border-b w-screen right-0 flex items-center justify-end overflow-hidden drag-region;
 }
 
-.titlebar-button {
+/* .titlebar-button {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -17,4 +17,4 @@
   height: 30px;
   user-select: none;
   @apply pointer-events-auto no-drag-region;
-}
+} */

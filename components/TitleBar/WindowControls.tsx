@@ -3,8 +3,9 @@ import React, { useEffect, useMemo, useState } from 'react'
 import styles from './window-controls.module.css'
 import { Button } from '../ui/button'
 import { Window } from '@tauri-apps/api/window'
-import cs from 'classnames'
+
 import Icon from '../Icon'
+import { cn } from '@/lib/utils'
 const WindowControls = () => {
   const [isMaximize, setIsMaximize] = useState(false)
   const [isClient, setIsClient] = useState(false)
@@ -31,7 +32,7 @@ const WindowControls = () => {
           isMaximize ? <Icon name='minimize' /> : <Icon name='maximize' />
         }
       </Button>
-      <Button className={cs(styles['titlebar-button'], 'hover:bg-red-300')} variant='ghost' size='icon' onClick={close}>
+      <Button className={cn(styles['titlebar-button'], 'hover:bg-red-300')} variant='ghost' size='icon' onClick={close}>
         <Icon name='x' />
       </Button>
     </div>
