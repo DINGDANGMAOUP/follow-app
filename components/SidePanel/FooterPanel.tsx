@@ -1,14 +1,9 @@
-import React from 'react'
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
-import { BadgeCheck, Bell, ChevronsUpDown, CreditCard, LogOut, Sparkles } from 'lucide-react'
-const data = {
-  user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
-  },
-}
+import { userAtom } from '@/atoms/user-atom'
+import userUnknown from '@/assets/icons/user-unknown.svg'
+import Image from 'next/image'
 const FooterPanel = () => {
+  const user = useAtomValue(userAtom)
   return (
     <SidebarMenu>
       <SidebarMenuItem>
@@ -20,20 +15,22 @@ const FooterPanel = () => {
             >
               <Avatar className="h-8 w-8 rounded-lg">
                 <AvatarImage
-                  src={data.user.avatar}
-                  alt={data.user.name}
+                  src={user.avatar}
+                  alt={user.username}
                 />
-                <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+                <AvatarFallback className="rounded-lg">
+                  <Image src={userUnknown} alt='user-unknown' />
+                </AvatarFallback>
               </Avatar>
               <div className="grid flex-1 text-left text-sm leading-tight">
                 <span className="truncate font-semibold">
-                  {data.user.name}
+                  {user.username}
                 </span>
                 <span className="truncate text-xs">
-                  {data.user.email}
+                  {user.email}
                 </span>
               </div>
-              <ChevronsUpDown className="ml-auto size-4" />
+              <Icon className="ml-auto size-4" name='chevrons-up-down' />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent
@@ -46,19 +43,19 @@ const FooterPanel = () => {
               <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                 <Avatar className="h-8 w-8 rounded-lg">
                   <AvatarImage
-                    src={data.user.avatar}
-                    alt={data.user.name}
+                    src={user.avatar}
+                    alt={user.username}
                   />
                   <AvatarFallback className="rounded-lg">
-                    CN
+                    <Image src={userUnknown} alt='user-unknown' />
                   </AvatarFallback>
                 </Avatar>
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-semibold">
-                    {data.user.name}
+                    {user.username}
                   </span>
                   <span className="truncate text-xs">
-                    {data.user.email}
+                    {user.email}
                   </span>
                 </div>
               </div>
@@ -66,28 +63,28 @@ const FooterPanel = () => {
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem>
-                <Sparkles />
+                <Icon name='sparkles' />
                 Upgrade to Pro
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem>
-                <BadgeCheck />
+                <Icon name='badge-check' />
                 Account
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <CreditCard />
+                <Icon name='credit-card' />
                 Billing
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Bell />
+                <Icon name='bell'/>
                 Notifications
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <LogOut />
+              <Icon name='log-out'/>
               Log out
             </DropdownMenuItem>
           </DropdownMenuContent>

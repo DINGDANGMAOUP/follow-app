@@ -1,5 +1,5 @@
 use std::thread;
-use tauri::{ Emitter, Window};
+use tauri::{Emitter, Window};
 
 #[tauri::command]
 pub fn test(window: Window) {
@@ -9,14 +9,14 @@ pub fn test(window: Window) {
     });
 }
 #[tauri::command]
-pub fn get_os()->String{
-  let platform = tauri_plugin_os::platform();
-  return platform.to_string();
+pub fn get_os() -> String {
+    let platform = tauri_plugin_os::platform();
+    platform.to_string()
 }
 #[tauri::command]
 pub async fn get_cpu() {
-  #[cfg(target_os = "windows")]
-  {
-    println!("CPU: {:?}", 1);
-  }
+    #[cfg(target_os = "windows")]
+    {
+        println!("CPU: {:?}", 1);
+    }
 }

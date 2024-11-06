@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "@/styles/main.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { createStore, Provider } from "jotai";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -11,8 +12,6 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
-
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -29,17 +28,18 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-
-          <TitleBar />
-          <div className="pt-8">
-            <SidebarProvider>
-              <SidePanel />
-              <main className="w-full">
-                {/* <SidebarTrigger/> */}
-                {children}
-              </main>
-            </SidebarProvider>
-          </div>
+          <Provider>
+            <TitleBar />
+            <div className="pt-8">
+              <SidebarProvider>
+                <SidePanel />
+                <main className="w-full">
+                  {/* <SidebarTrigger/> */}
+                  {children}
+                </main>
+              </SidebarProvider>
+            </div>
+          </Provider>
         </ThemeProvider>
       </body>
     </html>
