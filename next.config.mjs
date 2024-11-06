@@ -17,6 +17,14 @@ const nextConfig = {
   // 配置 assetPrefix，否则服务器无法正确解析您的资产。
   assetPrefix: isProd ? null : `http://${internalHost}:3000`,
   webpack:(config)=>{
+    //https://github.com/vercel/next.js/discussions/12810#discussioncomment-1297794
+    config.module.rules.push({
+      test: /\.(mp3)$/,
+      type: "asset/resource",
+      generator: {
+        filename: "static/chunks/[path][name].[hash][ext]",
+      },
+    })
     config.plugins.push(require('unplugin-auto-import/webpack').default({
       imports: ['react','ahooks','jotai','jotai/utils'],
       dirs: ['./components/**'],

@@ -1,9 +1,9 @@
-import MusicPage from "@/components/music/page";
-
+'use client'
 export default function Home() {
   return (
-    <div>
-      <MusicPage />
-    </div>
+      <div className="col-span-3 lg:col-span-4 lg:border-l">
+        {/* <audio src={mp} controls/> */}
+        <AudioPlayer tracks={tracks} />
+      </div>
   );
 }

@@ -9,9 +9,9 @@ export default function Error({
 }) {
   console.log('error', error);
   return (
-    <div>
+    <div className="flex flex-col items-center justify-center min-h-screen">
       <h2>Something went wrong!</h2>
-      <button onClick={() => reset()}>Try again</button>
+      <Button onClick={() => reset()}>Try again</Button>
     </div>
   )
 }
