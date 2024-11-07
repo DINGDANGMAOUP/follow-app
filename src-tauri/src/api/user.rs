@@ -20,3 +20,6 @@ pub async fn get_user_info() {
         }
     }
 }
+pub  async fn login(){
+  log::info!("login");
+}
