@@ -6,6 +6,7 @@ import fifty from "@/assets/50-tobylane.mp3";
 import iwonder from "@/assets/iwonder-dreamheaven.mp3";
 
 // All of these artists are at https://pixabay.com/music/search/mood/laid%20back/
+// eslint-disable-next-line import/no-anonymous-default-export
 export default [
   {
     title: "Cali",

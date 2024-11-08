@@ -21,19 +21,19 @@ const menuData = [
         title: 'Listen Now',
         url: '#',
         icon: 'youtube',
-        path: '/discover/listen-now'
+        path: '/listen-now'
       },
       {
         title: 'Browse',
         url: '#',
         icon: 'inbox',
-        path: '/discover/browse'
+        path: '/browse'
       },
       {
         title: 'Radio',
         url: '#',
         icon: 'radio',
-        path: '/discover/radio'
+        path: '/radio'
       }
     ]
   },

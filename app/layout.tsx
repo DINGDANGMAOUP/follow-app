@@ -36,6 +36,7 @@ export default function RootLayout({
                 <main className="w-full">
                   {/* <SidebarTrigger/> */}
                   {children}
+                  <MusicPlayer />
                 </main>
               </SidebarProvider>
             </div>
